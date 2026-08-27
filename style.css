@@ -1,14 +1,36 @@
 body {
     font-family: Georgia, serif;
     background:
-    radial-gradient(circle at top left,
-    #f8f3ea,
-    #f4eee4,
-    #f1ece3);
-
+    radial-gradient(circle at top left, #faf6ef, #f4eee4),
+    radial-gradient(circle at bottom right, #f7f3ec, #f1ece3);
     color: #4a4a4a;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+}
+
+/* Floating floral background */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+    url("https://www.transparenttextures.com/patterns/flowers.png");
+
+    opacity: 0.04;
+
+    pointer-events: none;
+    z-index: -1;
+
+    animation: floatBackground 20s ease-in-out infinite;
+}
+
+@keyframes floatBackground {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
 }
 
 header {
@@ -17,18 +39,27 @@ header {
 
     background:
     linear-gradient(
-    rgba(247,243,236,0.85),
-    rgba(247,243,236,0.90)
+    rgba(247,243,236,0.88),
+    rgba(247,243,236,0.92)
     ),
     url("https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=1600");
 
     background-size: cover;
     background-position: center;
 }
+
+.bismillah {
+    font-size: 52px;
+    color: #6d7558;
+    margin-bottom: 25px;
+    animation: fadeUp 1.4s ease;
+}
+
 h1 {
-    color: #c95c84;
-    font-size: 3.2rem;
+    color: #556b4d;
+    font-size: 3.3rem;
     margin-bottom: 15px;
+    animation: fadeUp 1.8s ease;
 }
 
 .tagline {
@@ -36,129 +67,115 @@ h1 {
     max-width: 700px;
     margin: auto;
     color: #666;
+    animation: fadeUp 2.2s ease;
 }
 
 section {
     max-width: 1200px;
     margin: auto;
-    padding: 50px 20px;
+    padding: 60px 20px;
 }
 
 .section-title {
     text-align: center;
-    color: #c95c84;
+    color: #556b4d;
     margin-bottom: 35px;
+    font-size: 2rem;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .card {
     background: white;
-    border-radius: 15px;
+    border-radius: 22px;
     overflow: hidden;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
 
-.card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 20px;
-}
-
-.card h3 {
-    margin-top: 0;
-    color: #c95c84;
-}
-
-.button {
-    display: inline-block;
-    background: #c95c84;
-    color: white;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-.button:hover {
-    opacity: 0.9;
-}
-
-.about-box {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #ffe8ee;
-    margin-top: 50px;
-}
-/* ===== Calm Minds Daily Animations ===== */
-
-.bismillah{
-    font-size: 52px;
-    color: #6d7558;
-    margin-bottom: 25px;
-    text-align: center;
-    font-weight: normal;
-    animation: fadeUp 1.5s ease;
-}
-
-header h1{
-    animation: fadeUp 2s ease;
-}
-
-.tagline{
-    animation: fadeUp 2.5s ease;
-}
-
-.card{
-    background: white;
-    border-radius: 18px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
 
     opacity: 0;
     transform: translateY(40px);
 
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease,
-        opacity 1s ease;
-
     animation: fadeCard 1s forwards;
+
+    transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
-.card:hover{
-    transform: translateY(-12px);
+.card:hover {
+    transform: translateY(-10px);
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,0.12),
-        0 0 20px rgba(201,92,132,0.15);
+    0 18px 35px rgba(0,0,0,0.12),
+    0 0 25px rgba(85,107,77,0.15);
 }
 
-.button{
+.card img {
+    width: 100%;
+    height: 340px;
+    object-fit: contain;
+    background: #faf7f2;
+    padding: 10px;
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card h3 {
+    color: #556b4d;
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+/* NEW GREEN BUTTONS */
+
+.button {
+    display: inline-block;
+
+    background: #556b4d;
+
+    color: white;
+    text-decoration: none;
+
+    padding: 12px 22px;
+
+    border-radius: 12px;
+
+    margin-top: 12px;
+
     transition: all 0.3s ease;
 }
 
-.button:hover{
-    transform: scale(1.05);
+.button:hover {
+    background: #6d7558;
+    transform: scale(1.06);
 }
+
+.about-box {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+}
+
+footer {
+    text-align: center;
+    padding: 35px;
+    background: #eef2e8;
+    margin-top: 60px;
+}
+
+/* Card fade animation */
 
 .card:nth-child(1){animation-delay:0.1s;}
 .card:nth-child(2){animation-delay:0.2s;}
@@ -169,52 +186,21 @@ header h1{
 .card:nth-child(7){animation-delay:0.7s;}
 .card:nth-child(8){animation-delay:0.8s;}
 
-@keyframes fadeCard{
-    to{
-        opacity:1;
-        transform:translateY(0);
+@keyframes fadeCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-image:
-        url("https://www.transparenttextures.com/patterns/flowers.png");
-
-    opacity: 0.04;
-
-    pointer-events: none;
-    z-index: -1;
-
-    animation: floatBackground 30s ease-in-out infinite;
-}
-
-@keyframes floatBackground {
-    0% {
-        transform: translateY(0px);
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
 
-    50% {
-        transform: translateY(-15px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-    to{
-        opacity:1;
-        transform:translateY(0);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
