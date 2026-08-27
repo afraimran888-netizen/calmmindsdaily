@@ -1,6 +1,11 @@
 body {
     font-family: Georgia, serif;
-    background: #fffaf5;
+    background:
+    radial-gradient(circle at top left,
+    #f8f3ea,
+    #f4eee4,
+    #f1ece3);
+
     color: #4a4a4a;
     margin: 0;
     padding: 0;
@@ -9,9 +14,17 @@ body {
 header {
     text-align: center;
     padding: 120px 20px;
-    background: linear-gradient(to bottom, #f6efe6, #fffaf5);
-}
 
+    background:
+    linear-gradient(
+    rgba(247,243,236,0.85),
+    rgba(247,243,236,0.90)
+    ),
+    url("https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=1600");
+
+    background-size: cover;
+    background-position: center;
+}
 h1 {
     color: #c95c84;
     font-size: 3.2rem;
